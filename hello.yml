@@ -1,15 +1,21 @@
+# name of the workflow - not mandatory - but need to identify different workflows
 name: hello
 
+# on attribute - is a must - it tells when to trigger a workflow?
 on: [push]
 
+# each workflow must have atleast one job
 jobs:
+  #job identifiers - can be anything dont use # or specail char in identifiers except _ or - 
   build:
-
+    # the type of machine to run the job - runners - 
     runs-on: ubuntu-latest
 
     steps:
+    # uses will tell the github how/where (docker image) to find the actions need for the step
     - uses: actions/checkout@v1
     - name: Run a one-line script
+      # the run attribute runs a or a series of commands on the runner machine
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
